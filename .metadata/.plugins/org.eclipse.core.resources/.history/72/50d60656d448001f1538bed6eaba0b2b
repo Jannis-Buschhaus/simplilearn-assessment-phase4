@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Customers</h1>
+	<span th:text="${msg}"></span>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="o:${owners}">
+			<tr>
+				<td><span th:text="${o.ownerId}"></span>
+			</tr>
+			<tr>
+				<td><span th:text="${o.name}"></span>
+			</tr>
+			<tr>
+				<td><span th:text="${o.phone}"></span>
+			</tr>
+			</th:block>
+		</tbody>
+	</table>
+	<span th:text="${owners}"></span>
+</body>
+</html>

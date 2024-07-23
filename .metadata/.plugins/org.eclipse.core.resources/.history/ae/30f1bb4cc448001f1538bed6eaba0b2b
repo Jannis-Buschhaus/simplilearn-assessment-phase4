@@ -1,0 +1,62 @@
+package com.entity;
+
+import java.time.LocalDateTime;
+
+public class Visit {
+	
+	private int visitId;
+	private LocalDateTime time;
+	private String reasonForVisit;
+	private int ownerId;
+	private int petId;
+	
+	public Visit() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Visit(int visitId, LocalDateTime time, String reasonForVisit, int ownerId, int petId) {
+		super();
+		this.visitId = visitId;
+		this.time = time;
+		this.reasonForVisit = reasonForVisit;
+		this.ownerId = ownerId;
+		this.petId = petId;
+	}
+	
+	public int getVisitId() {
+		return visitId;
+	}
+	public void setVisitId(int visitId) {
+		this.visitId = visitId;
+	}
+	public LocalDateTime getTime() {
+		return time;
+	}
+	public void setTime(LocalDateTime time) {
+		this.time = time;
+	}
+	public String getReasonForVisit() {
+		return reasonForVisit;
+	}
+	public void setReasonForVisit(String reasonForVisit) {
+		this.reasonForVisit = reasonForVisit;
+	}
+	public int getOwnerId() {
+		return ownerId;
+	}
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+	public int getPetId() {
+		return petId;
+	}
+	public void setPetId(int petId) {
+		this.petId = petId;
+	}
+	
+	@Override
+	public String toString() {
+		return "Visit [visitId=" + visitId + ", time=" + time + ", reasonForVisit=" + reasonForVisit + ", ownerId="
+				+ ownerId + ", petId=" + petId + "]";
+	}
+}

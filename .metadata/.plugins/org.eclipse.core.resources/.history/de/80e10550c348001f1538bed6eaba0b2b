@@ -1,0 +1,13 @@
+package com.entity;
+
+import java.time.LocalDateTime;
+
+public class Visit {
+	
+	private int visitId;
+	private LocalDateTime time;
+	private String reasonForVisit;
+	private int ownerId;
+	private int petId;
+
+}

@@ -1,0 +1,74 @@
+package com.entity;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+
+@Entity
+public class Visit {
+	
+	@Id
+	private int visitId;
+	private LocalDateTime time;
+	private String reasonForVisit;
+	@OneToOne
+	@JoinColumn(name="petId")
+	private Pet pet;
+	@ManyToOne
+	@JoinColumn(name="ownerId")
+	private Owner owner;
+	
+	public Visit() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Visit(int visitId, LocalDateTime time, String reasonForVisit, Pet pet, Owner owner) {
+		super();
+		this.visitId = visitId;
+		this.time = time;
+		this.reasonForVisit = reasonForVisit;
+		this.pet = pet;
+		this.owner = owner;
+	}
+
+	public int getVisitId() {
+		return visitId;
+	}
+	public void setVisitId(int visitId) {
+		this.visitId = visitId;
+	}
+	public LocalDateTime getTime() {
+		return time;
+	}
+	public void setTime(LocalDateTime time) {
+		this.time = time;
+	}
+	public String getReasonForVisit() {
+		return reasonForVisit;
+	}
+	public void setReasonForVisit(String reasonForVisit) {
+		this.reasonForVisit = reasonForVisit;
+	}
+	public Pet getPet() {
+		return pet;
+	}
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+	public Owner getOwner() {
+		return owner;
+	}
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
+	@Override
+	public String toString() {
+		return "Visit [visitId=" + visitId + ", time=" + time + ", reasonForVisit=" + reasonForVisit + ", pet=" + pet
+				+ ", owner=" + owner + "]";
+	}
+}

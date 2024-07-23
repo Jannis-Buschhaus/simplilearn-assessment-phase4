@@ -1,0 +1,61 @@
+package com.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.entity.Owner;
+import com.repository.OwnerRepository;
+
+@Service
+public class OwnerService {
+	
+	@Autowired
+	OwnerRepository or;
+	
+	public List<Owner> getOwners(){
+		return or.findAll();
+	}
+	
+	public Owner findOwnerById(int ownerId) {
+		Optional<Owner> result = or.findById(ownerId);
+		if(result.isPresent()) {
+			return result.get();
+		} else {
+			return null;
+		}
+	}
+	
+	public String storeOwner(Owner o) {
+		Optional<Owner> result = or.findById(o.getOwnerId());
+		if(result.isPresent()) {
+			return "Owner ID "+o.getOwnerId()+"is already present";
+		}
+		or.saveAndFlush(o);
+		result = or.findById(o.getOwnerId());
+		if(result.isPresent()) {
+			return "New Owner saved";
+		} else {
+			return "Owner has not been saved";
+		}
+	}
+	
+	public String modifyOwner(Owner o) {
+		Optional<Owner> result = or.findById(o.getOwnerId());
+		if(result.isEmpty()) {
+			return "Owner ID "+o.getOwnerId()+" not found";
+		}
+		Owner modifiedOwner = result.get();
+		modifiedOwner.setName(o.getName());
+		modifiedOwner.setPhone(o.getPhone());
+		return "Owner modified";
+	}
+	
+	public String deleteOwner(Owner o) {
+		or.delete(o);
+		return "Owner deleted";
+	}
+
+}

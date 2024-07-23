@@ -1,0 +1,58 @@
+package com.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+public class Pet {
+	
+	private int petId;
+	private String petName;
+	private String species;
+	@ManyToOne
+	@JoinColumn(name="ownerId")
+	private Owner owner;
+	
+	public Pet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Pet(int petId, String petName, String species, Owner owner) {
+		super();
+		this.petId = petId;
+		this.petName = petName;
+		this.species = species;
+		this.owner = owner;
+	}
+
+	public int getPetId() {
+		return petId;
+	}
+	public void setPetId(int petId) {
+		this.petId = petId;
+	}
+	public String getPetName() {
+		return petName;
+	}
+	public void setPetName(String petName) {
+		this.petName = petName;
+	}
+	public String getSpecies() {
+		return species;
+	}
+	public void setSpecies(String species) {
+		this.species = species;
+	}
+	public Owner getOwner() {
+		return owner;
+	}
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
+	@Override
+	public String toString() {
+		return "Pet [petId=" + petId + ", petName=" + petName + ", species=" + species + ", owner=" + owner + "]";
+	}
+}

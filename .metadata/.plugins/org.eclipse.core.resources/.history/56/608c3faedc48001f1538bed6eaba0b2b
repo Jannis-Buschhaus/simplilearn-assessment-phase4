@@ -1,0 +1,79 @@
+package com.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class Owner {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int ownerId;
+	private String name;
+	private String phone;
+	@OneToMany(mappedBy="visit")
+	private Set<Visit> visits = new HashSet();
+	@OneToMany(mappedBy="pet")
+	private Set<Pet> pets = new HashSet();
+	
+	public Owner() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Owner(String name, String phone) {
+		super();
+		this.name = name;
+		this.phone = phone;
+	}
+	public Owner(int ownerId, String name, String phone, Set<Visit> visits, Set<Pet> pets) {
+		super();
+		this.ownerId = ownerId;
+		this.name = name;
+		this.phone = phone;
+		this.visits = visits;
+		this.pets = pets;
+	}
+
+	public int getOwnerId() {
+		return ownerId;
+	}
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public Set<Visit> getVisits() {
+		return visits;
+	}
+	public void setVisits(Set<Visit> visits) {
+		this.visits = visits;
+	}
+	public Set<Pet> getPets() {
+		return pets;
+	}
+	public void setPets(Set<Pet> pets) {
+		this.pets = pets;
+	}
+
+	@Override
+	public String toString() {
+		return "Owner [ownerId=" + ownerId + ", name=" + name + ", phone=" + phone + ", visits=" + visits + ", pets="
+				+ pets + "]";
+	}
+}
