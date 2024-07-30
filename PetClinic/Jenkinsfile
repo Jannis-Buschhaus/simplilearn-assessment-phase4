@@ -11,14 +11,9 @@ pipeline {
                 sh "mvn --version"
             }
         }
-        stage("cd into maven project"){
-            steps{
-                sh "cd PetClinic"
-            }
-        }
         stage("clean old build file"){
             steps{
-                sh "mvn clean"
+                sh "mvn -f /PetClinic/pom.xml clean"
             }
         }
         stage("compile maven project"){
