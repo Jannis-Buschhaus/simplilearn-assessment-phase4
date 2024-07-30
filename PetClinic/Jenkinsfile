@@ -16,11 +16,6 @@ pipeline {
                 sh "mvn -f ./PetClinic/pom.xml clean"
             }
         }
-        stage("compile maven project"){
-            steps{
-                sh "mvn -f ./PetClinic/pom.xml compile"
-            }
-        }
         stage("create the jar"){
             steps{
                 sh "mvn -f ./PetClinic/pom.xml package"
