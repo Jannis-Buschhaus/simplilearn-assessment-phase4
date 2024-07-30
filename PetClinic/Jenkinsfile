@@ -18,17 +18,17 @@ pipeline {
         }
         stage("compile maven project"){
             steps{
-                sh "mvn compile"
+                sh "mvn -f ./PetClinic/pom.xml compile"
             }
         }
         stage("test the project"){
             steps{
-                sh "mvn test"
+                sh "mvn -f ./PetClinic/pom.xml test"
             }
         }
         stage("create the jar or war"){
             steps{
-                sh "mvn package"
+                sh "mvn -f ./PetClinic/pom.xml package"
             }
         }
     }
