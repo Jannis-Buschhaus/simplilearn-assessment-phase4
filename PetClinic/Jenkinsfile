@@ -1,22 +1,46 @@
 pipeline {
     agent any
+     tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M3"
+    }
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-		sh "mvn clean package"
+        stage("version of software"){
+            steps{
+                sh "mvn --version"
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stage("clean old build file"){
+            steps{
+                sh "mvn clean"
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+        stage("compile maven project"){
+            steps{
+                sh "mvn compile"
             }
+        }
+        stage("test the project"){
+            steps{
+                sh "mvn test"
+            }
+        }
+        stage("create the jar or war"){
+            steps{
+                sh "mvn package"
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Build stages done.'
+        }
+        success {
+            echo 'Success. Deploying docker container.'
+        }
+        failure {
+            echo 'Build failed. Docker container will not be deployed'
         }
     }
 }

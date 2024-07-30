@@ -1521,3 +1521,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration PetClinicApplicatio
 2024-07-23 13:18:58,028 [Worker-22: Launching Executing install in _home_jannis_git_simplilearn-assessment-phase4_PetClinic] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /home/jannis/.p2/pool/plugins/com.google.guava.failureaccess_1.0.2.jar
 2024-07-23 13:18:58,030 [Worker-22: Launching Executing install in _home_jannis_git_simplilearn-assessment-phase4_PetClinic] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "/home/jannis/git/simplilearn-assessment-phase4/PetClinic":
 2024-07-23 13:18:58,031 [Worker-22: Launching Executing install in _home_jannis_git_simplilearn-assessment-phase4_PetClinic] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always install
+2024-07-30 10:56:39,119 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
