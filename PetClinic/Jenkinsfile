@@ -21,12 +21,7 @@ pipeline {
                 sh "mvn -f ./PetClinic/pom.xml compile"
             }
         }
-        stage("test the project"){
-            steps{
-                sh "mvn -f ./PetClinic/pom.xml test"
-            }
-        }
-        stage("create the jar or war"){
+        stage("create the jar"){
             steps{
                 sh "mvn -f ./PetClinic/pom.xml package"
             }
