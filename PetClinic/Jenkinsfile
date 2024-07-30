@@ -13,7 +13,7 @@ pipeline {
         }
         stage("clean old build file"){
             steps{
-                sh "mvn -f /PetClinic/pom.xml clean"
+                sh "mvn -f ./PetClinic/pom.xml clean"
             }
         }
         stage("compile maven project"){
